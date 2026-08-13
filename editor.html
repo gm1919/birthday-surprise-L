@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Birthday Editor</title>
+<style>
+body{margin:0;background:linear-gradient(135deg,#fffdfb,#fff0f3);color:#684a53;font-family:Arial,sans-serif;padding:25px 15px}.wrap{max-width:700px;margin:auto}h1{font-family:Georgia,serif;font-weight:500}p{color:#8b6d75;line-height:1.6}.box{background:#fff;border:1px solid #efd9de;border-radius:18px;padding:18px;margin:12px 0}label{display:block;font-size:10px;letter-spacing:1.5px;color:#9a7079;margin:12px 0 5px;text-transform:uppercase}input,textarea{width:100%;box-sizing:border-box;border:1px solid #e7cbd2;border-radius:10px;padding:11px;font:14px Arial;color:#684a53}textarea{min-height:90px}button{width:100%;padding:14px;border:0;border-radius:25px;background:#cf7185;color:#fff;font-weight:bold;margin-top:10px}.secondary{background:#fff;color:#ad566b;border:1px solid #efd9de}small{color:#9a7079}
+</style></head>
+<body><div class="wrap"><h1>Birthday Website Editor ❤️</h1><p>Edit your content here. When finished, click <b>Save</b>. The public <b>index.html</b> itself has no editor button.</p>
+<div class="box"><label>Her Name</label><input id="name"><label>Birthday Message</label><textarea id="birthday"></textarea></div>
+<div class="box"><label>Little Moments Intro</label><textarea id="intro"></textarea><div id="moments"></div></div>
+<div class="box"><h3>Three Surprise Boxes</h3><div id="boxes"></div></div>
+<div class="box"><h3>Three Memories</h3><small>Upload photos to GitHub and enter their exact filename/path, e.g. photo1.jpg</small><div id="photos"></div></div>
+<div class="box"><label>Secret Message</label><textarea id="letter"></textarea><label>Final Message</label><textarea id="final"></textarea></div>
+<button onclick="save()">SAVE CHANGES</button><button class="secondary" onclick="location.href='index.html'">OPEN WEBSITE</button></div>
+<script>
+const defaults={name:"Your Name",birthday:"I hope today gives you even a little of the happiness you give me.",intro:"A few little things that make me smile whenever I think of you.",moments:[["Your smile","Write something about her smile here."],["Just you","Write something personal here."]],photos:[["","A memory worth keeping."],["","One of my favourite little moments."],["","Just because this one makes me smile."]],boxes:[["A tiny surprise","Write your message for Box 01 here."],["Something from me","Write your message for Box 02 here."],["The suspicious one","Write your message for Box 03 here."]],letter:"I hope today gives you even a little of the happiness you give me.\\n\\nAnd if I can make you smile even once today, then this little surprise was worth it. ❤️\\n\\nYou smiled, right?\\nThat's all I wanted. ❤️",final:"Because you deserve more beautiful days, more reasons to laugh, and more moments that make you genuinely happy."};
+let d=JSON.parse(localStorage.getItem("birthdayFinal")||"null")||defaults;const $=x=>document.getElementById(x);
+function load(){name.value=d.name;birthday.value=d.birthday;intro.value=d.intro;letter.value=d.letter;final.value=d.final;
+moments.innerHTML=d.moments.map((x,i)=>`<label>Moment ${i+1} Title</label><input id="mt${i}" value="${x[0].replace(/"/g,'&quot;')}"><label>Moment ${i+1} Text</label><textarea id="mx${i}">${x[1]}</textarea>`).join("");
+boxes.innerHTML=d.boxes.map((x,i)=>`<label>Box ${i+1} Title</label><input id="bt${i}" value="${x[0].replace(/"/g,'&quot;')}"><label>Box ${i+1} Message</label><textarea id="bx${i}">${x[1]}</textarea>`).join("");
+photos.innerHTML=d.photos.map((x,i)=>`<label>Photo ${i+1} Filename / Path</label><input id="pi${i}" value="${x[0].replace(/"/g,'&quot;')}" placeholder="photo${i+1}.jpg"><label>Photo ${i+1} Caption</label><input id="pc${i}" value="${x[1].replace(/"/g,'&quot;')}">`).join("")}
+function save(){d.name=name.value.trim()||"Your Name";d.birthday=birthday.value;d.intro=intro.value;d.letter=letter.value;d.final=final.value;d.moments.forEach((x,i)=>{x[0]=$("mt"+i).value;x[1]=$("mx"+i).value});d.boxes.forEach((x,i)=>{x[0]=$("bt"+i).value;x[1]=$("bx"+i).value});d.photos.forEach((x,i)=>{x[0]=$("pi"+i).value;x[1]=$("pc"+i).value});localStorage.setItem("birthdayFinal",JSON.stringify(d));alert("Saved on this browser ❤️");}
+load();
+</script></body></html>
