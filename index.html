@@ -15,7 +15,7 @@ body{
   overflow:hidden;
   background:linear-gradient(135deg,#fffdfb,#fff1f4,#fffaf7);
   color:#684a53;
-  font-family:Montserrat,sans-serif
+  font-family:Montserrat,sans-serif;
 }
 
 .bg{
@@ -24,7 +24,7 @@ body{
   pointer-events:none;
   background:
     radial-gradient(circle at 8% 10%,#f7d9e0 0,transparent 30%),
-    radial-gradient(circle at 92% 90%,#f4dfc5 0,transparent 32%)
+    radial-gradient(circle at 92% 90%,#f4dfc5 0,transparent 32%);
 }
 
 .scene{
@@ -35,12 +35,12 @@ body{
   justify-content:center;
   text-align:center;
   padding:60px 20px 85px;
-  overflow:auto
+  overflow:auto;
 }
 
 .scene.active{
   display:flex;
-  animation:fade .65s ease
+  animation:fade .65s ease;
 }
 
 @keyframes fade{
@@ -50,7 +50,7 @@ body{
 
 .wrap{
   width:100%;
-  max-width:720px
+  max-width:720px;
 }
 
 .ey{
@@ -58,36 +58,36 @@ body{
   letter-spacing:4px;
   color:#b48690;
   text-transform:uppercase;
-  margin-bottom:18px
+  margin-bottom:18px;
 }
 
 h1,h2,h3{
   font-family:"Cormorant Garamond",serif;
   font-weight:600;
-  color:#684650
+  color:#684650;
 }
 
 h1{
   font-size:clamp(58px,14vw,100px);
   line-height:.84;
-  margin:0 0 25px
+  margin:0 0 25px;
 }
 
 h2{
   font-size:clamp(48px,10vw,76px);
   line-height:.9;
-  margin:12px 0 25px
+  margin:12px 0 25px;
 }
 
 h3{
   font-size:34px;
-  margin:7px 0 12px
+  margin:7px 0 12px;
 }
 
 p{
   font-size:14px;
   line-height:1.85;
-  color:#8b6d75
+  color:#8b6d75;
 }
 
 .card{
@@ -96,7 +96,7 @@ p{
   border-radius:24px;
   padding:28px;
   box-shadow:0 18px 50px rgba(105,65,75,.08);
-  backdrop-filter:blur(12px)
+  backdrop-filter:blur(12px);
 }
 
 .input{
@@ -107,7 +107,12 @@ p{
   background:#fff;
   color:#684a53;
   text-align:center;
-  outline:none
+  outline:none;
+}
+
+.input:focus{
+  border-color:#cf7185;
+  box-shadow:0 0 0 3px rgba(207,113,133,.10);
 }
 
 .btn{
@@ -119,25 +124,27 @@ p{
   font-weight:600;
   cursor:pointer;
   margin-top:12px;
-  box-shadow:0 10px 28px rgba(190,80,105,.16)
+  box-shadow:0 10px 28px rgba(190,80,105,.16);
+}
+
+.btn:hover{
+  transform:translateY(-1px);
 }
 
 .btn.light{
   background:#fff;
   color:#ad566b;
   border:1px solid #efd9de;
-  box-shadow:none
+  box-shadow:none;
 }
 
 .err{
   min-height:25px;
   color:#b34f67;
   font-size:12px;
-  margin-top:8px
+  margin-top:8px;
 }
 
-/* ONLY BACK BUTTON IS FIXED.
-   THERE IS NO GLOBAL NEXT BUTTON ANYMORE. */
 .nav{
   position:fixed;
   bottom:16px;
@@ -145,7 +152,7 @@ p{
   right:0;
   display:flex;
   justify-content:center;
-  z-index:10
+  z-index:10;
 }
 
 .nav button{
@@ -154,18 +161,20 @@ p{
   padding:10px 22px;
   background:#fff;
   color:#ad566b;
-  font-weight:600
+  font-weight:600;
+  cursor:pointer;
 }
 
 .hide{
-  display:none!important
+  display:none!important;
 }
 
 .gift{
-  font-size:58px
+  font-size:58px;
 }
 
-.reveal,.letter{
+.reveal,
+.letter{
   display:none;
   margin-top:20px;
   padding:18px;
@@ -174,30 +183,31 @@ p{
   border-radius:17px;
   color:#8b6d75;
   line-height:1.8;
-  white-space:pre-line
+  white-space:pre-line;
 }
 
-.reveal.show,.letter.show{
+.reveal.show,
+.letter.show{
   display:block;
-  animation:fade .5s ease
+  animation:fade .5s ease;
 }
 
 .moments{
   display:grid;
   gap:13px;
-  text-align:left
+  text-align:left;
 }
 
 .moment{
   padding:20px;
   border-radius:19px;
   background:#fff;
-  border:1px solid #f5e3e7
+  border:1px solid #f5e3e7;
 }
 
 .moment b{
   font:600 30px "Cormorant Garamond";
-  color:#704b55
+  color:#704b55;
 }
 
 .moment span{
@@ -205,19 +215,19 @@ p{
   margin-top:6px;
   color:#8b6d75;
   font-size:13px;
-  line-height:1.8
+  line-height:1.8;
 }
 
 .photos{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px
+  gap:14px;
 }
 
 .photo-card{
   padding:8px;
   background:#fff;
-  border-radius:19px
+  border-radius:19px;
 }
 
 .photo{
@@ -227,32 +237,33 @@ p{
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
   background:linear-gradient(145deg,#fff0f3,#f8eadb);
   color:#b9838f;
-  font-size:11px
+  font-size:11px;
 }
 
 .photo img{
   width:100%;
   height:100%;
-  object-fit:cover
+  object-fit:cover;
 }
 
 .caption{
   font-size:11px;
   color:#8b6d75;
-  padding:9px 3px 3px
+  padding:9px 3px 3px;
 }
 
 .envelope{
-  font-size:68px
+  font-size:68px;
 }
 
 .music{
   position:fixed;
   right:12px;
   top:12px;
-  z-index:20
+  z-index:20;
 }
 
 .music button{
@@ -260,22 +271,22 @@ p{
   border-radius:24px;
   padding:9px 13px;
   background:#fff;
-  color:#ad566b
+  color:#ad566b;
+  cursor:pointer;
 }
 
-/* Per-slide action area */
 .action{
-  margin-top:24px
+  margin-top:24px;
 }
 
 @media(max-width:650px){
   .photos{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .photo-card{
     width:min(270px,100%);
-    margin:auto
+    margin:auto;
   }
 }
 </style>
@@ -290,12 +301,16 @@ p{
 </audio>
 
 <div class="music">
-  <button onclick="musicToggle()" id="musicBtn">🎵 Music: OFF</button>
+  <button onclick="musicToggle()" id="musicBtn">
+    🎵 Music: OFF
+  </button>
 </div>
 
 
-<!-- SCREEN 1 -->
+<!-- ================= SCREEN 1 ================= -->
+
 <section class="scene active" id="s0">
+
   <div class="wrap">
 
     <div style="font-size:42px">🌷</div>
@@ -314,6 +329,7 @@ p{
       id="nameInput"
       placeholder="Your name"
       autocomplete="off"
+      onkeydown="if(event.key==='Enter') unlock()"
     >
 
     <br>
@@ -325,11 +341,14 @@ p{
     <div class="err" id="err"></div>
 
   </div>
+
 </section>
 
 
-<!-- SCREEN 2 -->
+<!-- ================= SCREEN 2 ================= -->
+
 <section class="scene" id="s1">
+
   <div class="wrap">
 
     <div class="ey">WAIT...</div>
@@ -340,22 +359,29 @@ p{
     </h2>
 
     <div class="action">
+
       <button class="btn" onclick="next()">
         Continue ❤️
       </button>
+
     </div>
 
   </div>
+
 </section>
 
 
-<!-- SCREEN 3 -->
+<!-- ================= SCREEN 3 ================= -->
+
 <section class="scene" id="s2">
+
   <div class="wrap">
 
     <div style="font-size:42px">❤️</div>
 
-    <h2>It's your birthday.</h2>
+    <h2>
+      It's your birthday.
+    </h2>
 
     <div class="card">
 
@@ -369,17 +395,22 @@ p{
     </div>
 
     <div class="action">
+
       <button class="btn" onclick="next()">
         Continue ❤️
       </button>
+
     </div>
 
   </div>
+
 </section>
 
 
-<!-- BOX 01 -->
+<!-- ================= BOX 01 ================= -->
+
 <section class="scene" id="s3">
+
   <div class="wrap">
 
     <div class="ey">01</div>
@@ -401,19 +432,24 @@ p{
       <div class="reveal" id="r0"></div>
 
       <div class="action hide" id="nextAfter0">
+
         <button class="btn" onclick="next()">
           Continue ❤️
         </button>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 
-<!-- BOX 02 -->
+<!-- ================= BOX 02 ================= -->
+
 <section class="scene" id="s4">
+
   <div class="wrap">
 
     <div class="ey">02</div>
@@ -435,19 +471,24 @@ p{
       <div class="reveal" id="r1"></div>
 
       <div class="action hide" id="nextAfter1">
+
         <button class="btn" onclick="next()">
           Continue ❤️
         </button>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 
-<!-- BOX 03 -->
+<!-- ================= BOX 03 ================= -->
+
 <section class="scene" id="s5">
+
   <div class="wrap">
 
     <div class="ey">03</div>
@@ -469,19 +510,24 @@ p{
       <div class="reveal" id="r2"></div>
 
       <div class="action hide" id="nextAfter2">
+
         <button class="btn" onclick="next()">
           Continue ❤️
         </button>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 
-<!-- LITTLE MOMENTS -->
+<!-- ================= LITTLE MOMENTS ================= -->
+
 <section class="scene" id="s6">
+
   <div class="wrap">
 
     <div class="ey">Little Moments</div>
@@ -493,17 +539,22 @@ p{
     <div class="moments" id="moments"></div>
 
     <div class="action">
+
       <button class="btn" onclick="next()">
         Continue ❤️
       </button>
+
     </div>
 
   </div>
+
 </section>
 
 
-<!-- PHOTOS -->
+<!-- ================= PHOTOS ================= -->
+
 <section class="scene" id="s7">
+
   <div class="wrap">
 
     <div class="ey">A Few Memories</div>
@@ -511,23 +562,29 @@ p{
     <h2>A Few Memories</h2>
 
     <p>
-      Three little spaces for photos that mean something to you.
+      Three little spaces for photos that mean
+      something to you.
     </p>
 
     <div class="photos" id="photos"></div>
 
     <div class="action">
+
       <button class="btn" onclick="next()">
         Continue ❤️
       </button>
+
     </div>
 
   </div>
+
 </section>
 
 
-<!-- SECRET MESSAGE -->
+<!-- ================= SECRET MESSAGE ================= -->
+
 <section class="scene" id="s8">
+
   <div class="wrap">
 
     <div class="ey">A private little note</div>
@@ -538,7 +595,9 @@ p{
 
       <div class="envelope">💌</div>
 
-      <p>You've received 1 secret message.</p>
+      <p>
+        You've received 1 secret message.
+      </p>
 
       <button
         class="btn"
@@ -550,20 +609,28 @@ p{
 
       <div class="letter" id="letter"></div>
 
-      <div class="action hide" id="nextAfterLetter">
+      <div
+        class="action hide"
+        id="nextAfterLetter"
+      >
+
         <button class="btn" onclick="next()">
           Continue ❤️
         </button>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 
-<!-- FINAL -->
+<!-- ================= FINAL ================= -->
+
 <section class="scene" id="s9">
+
   <div class="wrap">
 
     <div style="font-size:60px">🌷</div>
@@ -573,35 +640,75 @@ p{
     <h2>Keep smiling. ❤️</h2>
 
     <div class="card">
+
       <p id="final"></p>
+
     </div>
 
     <h2 style="font-size:45px">
+
       Happy Birthday,
       <span id="finalName"></span>. 🎂❤️
+
     </h2>
 
-    <button class="btn" onclick="restart()">
+    <button
+      class="btn"
+      onclick="restart()"
+    >
       PLAY AGAIN ↻
     </button>
 
   </div>
+
 </section>
 
 
-<!-- ONLY BACK BUTTON -->
+<!-- ================= BACK ================= -->
+
 <div class="nav">
-  <button id="back" onclick="prev()">
+
+  <button
+    id="back"
+    onclick="prev()"
+  >
     ← Back
   </button>
+
 </div>
 
 
 <script>
 
+/* =====================================================
+   EASY SETTINGS
+   ===================================================== */
+
+/*
+   THIS IS THE PASSWORD.
+   The visitor MUST enter exactly this word.
+*/
+const PASSWORD = "LOVE";
+
+
+/*
+   THIS IS THE NAME THAT WILL BE DISPLAYED
+   ON THE BIRTHDAY SCREENS.
+
+   Change "Your Name" to the person's real name.
+   Example:
+   const HER_NAME = "DEAR";
+*/
+const HER_NAME = "DEAR";
+
+
+/* =====================================================
+   EDITABLE CONTENT
+   ===================================================== */
+
 const defaults = {
 
-  name:"Your Name",
+  name: HER_NAME,
 
   birthday:
   "I hope today gives you even a little of the happiness you give me.",
@@ -610,20 +717,54 @@ const defaults = {
   "A few little things that make me smile whenever I think of you.",
 
   moments:[
-    ["Your smile","Write something about her smile here."],
-    ["Just you","Write something personal here."]
+    [
+      "Your smile",
+      "Write something about her smile here."
+    ],
+
+    [
+      "The little things",
+      "Write something about the little things here."
+    ],
+
+    [
+      "Just you",
+      "Write something personal here."
+    ]
   ],
 
   photos:[
-    ["","A memory worth keeping."],
-    ["","One of my favourite little moments."],
-    ["","Just because this one makes me smile."]
+    [
+      "",
+      "A memory worth keeping."
+    ],
+
+    [
+      "",
+      "One of my favourite little moments."
+    ],
+
+    [
+      "",
+      "Just because this one makes me smile."
+    ]
   ],
 
   boxes:[
-    ["A tiny surprise","Write your message for Box 01 here."],
-    ["Something from me","Write your message for Box 02 here."],
-    ["The suspicious one","Write your message for Box 03 here."]
+    [
+      "A tiny surprise",
+      "Write your message for Box 01 here."
+    ],
+
+    [
+      "Something from me",
+      "Write your message for Box 02 here."
+    ],
+
+    [
+      "The suspicious one",
+      "Write your message for Box 03 here."
+    ]
   ],
 
   letter:
@@ -635,118 +776,326 @@ const defaults = {
 };
 
 
-let d =
-  JSON.parse(localStorage.getItem("birthdayFinal") || "null")
-  || defaults;
+/* =====================================================
+   LOAD SAVED EDITOR CONTENT
+   ===================================================== */
+
+let savedData =
+  JSON.parse(
+    localStorage.getItem("birthdayFinal") || "null"
+  );
+
+
+/*
+   If saved data exists, use it.
+   But always keep HER_NAME as the displayed name
+   unless you deliberately change the content.
+*/
+
+let d = savedData || defaults;
+
+if(!savedData){
+  d.name = HER_NAME;
+}
+
+
+/* =====================================================
+   STATE
+   ===================================================== */
 
 let scene = 0;
 
+let unlocked = false;
+
+let completed = {
+  0:false,
+  1:false,
+  2:false,
+  3:false,
+  4:false,
+  5:false,
+  6:false,
+  7:false,
+  8:false
+};
+
 
 /* Shortcut */
-const $ = id => document.getElementById(id);
+
+const $ = id =>
+  document.getElementById(id);
 
 
-/* Safe text */
+/* =====================================================
+   SAFE TEXT
+   ===================================================== */
+
 function esc(x){
-  return String(x ?? "").replace(
-    /[&<>"]/g,
-    c => ({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;"
-    }[c])
-  );
+
+  return String(x ?? "")
+    .replace(
+      /[&<>"]/g,
+      c => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;"
+      }[c])
+    );
+
 }
 
 
-/* Render saved editor data */
+/* =====================================================
+   RENDER
+   ===================================================== */
+
 function render(){
 
-  $("who").textContent = d.name;
+  $("who").textContent =
+    d.name;
 
-  $("finalName").textContent = d.name;
+  $("finalName").textContent =
+    d.name;
 
-  $("birthday").textContent = d.birthday;
+  $("birthday").textContent =
+    d.birthday;
 
-  $("intro").textContent = d.intro;
+  $("intro").textContent =
+    d.intro;
 
-  $("letter").textContent = d.letter;
+  $("letter").textContent =
+    d.letter;
 
-  $("final").textContent = d.final;
+  $("final").textContent =
+    d.final;
 
 
-  d.boxes.forEach((x,i)=>{
-    $("bt"+i).textContent = x[0];
-  });
+  d.boxes.forEach(
+    (x,i)=>{
+      $("bt"+i).textContent =
+        x[0];
+    }
+  );
 
 
   $("moments").innerHTML =
-    d.moments.map(x => `
-      <div class="moment">
-        <b>${esc(x[0])}</b>
-        <span>${esc(x[1])}</span>
-      </div>
-    `).join("");
+    d.moments.map(
+      x => `
+        <div class="moment">
+          <b>${esc(x[0])}</b>
+          <span>${esc(x[1])}</span>
+        </div>
+      `
+    ).join("");
 
 
   $("photos").innerHTML =
-    d.photos.map((x,i)=>`
-      <div class="photo-card">
+    d.photos.map(
+      (x,i)=>`
+        <div class="photo-card">
 
-        <div class="photo">
+          <div class="photo">
 
-          ${
-            x[0]
-            ?
-            `<img src="${esc(x[0])}" alt="Memory ${i+1}">`
-            :
-            `📷<br><br>
-             Photo ${i+1}<br>
-             can be added later ❤️`
-          }
+            ${
+              x[0]
+              ?
+              `<img
+                src="${esc(x[0])}"
+                alt="Memory ${i+1}"
+              >`
+              :
+              `
+              📷
+              <br><br>
+              Photo ${i+1}
+              <br>
+              can be added later ❤️
+              `
+            }
+
+          </div>
+
+          <div class="caption">
+            ${esc(x[1])}
+          </div>
 
         </div>
+      `
+    ).join("");
 
-        <div class="caption">
-          ${esc(x[1])}
-        </div>
-
-      </div>
-    `).join("");
 }
 
 
-/* Show a particular slide */
+/* =====================================================
+   SHOW SLIDE
+   ===================================================== */
+
 function show(n){
 
-  scene = Math.max(0,Math.min(9,n));
+  scene =
+    Math.max(
+      0,
+      Math.min(9,n)
+    );
+
 
   document
     .querySelectorAll(".scene")
-    .forEach(x => x.classList.remove("active"));
+    .forEach(
+      x =>
+        x.classList.remove("active")
+    );
 
-  $("s"+scene).classList.add("active");
 
-  $("back").classList.toggle(
-    "hide",
-    scene === 0
-  );
+  $("s"+scene)
+    .classList.add("active");
+
+
+  $("back")
+    .classList.toggle(
+      "hide",
+      scene === 0
+    );
+
 }
 
 
-/* Next slide */
+/* =====================================================
+   NEXT — LOCKED NAVIGATION
+   ===================================================== */
+
 function next(){
 
-  if(scene < 9){
-    show(scene + 1);
+  if(scene >= 9){
+    return;
   }
+
+
+  /*
+    SCREEN 0:
+    Cannot leave unless LOVE
+    has been entered.
+  */
+
+  if(scene === 0){
+
+    if(!unlocked){
+      return;
+    }
+
+  }
+
+
+  /*
+    SCREEN 1:
+    Continue button itself completes
+    the screen.
+  */
+
+  if(scene === 1){
+    completed[1] = true;
+  }
+
+
+  /*
+    SCREEN 2:
+    Continue button completes
+    birthday screen.
+  */
+
+  if(scene === 2){
+    completed[2] = true;
+  }
+
+
+  /*
+    BOX 01:
+    Must open the box first.
+  */
+
+  if(
+    scene === 3 &&
+    !completed[3]
+  ){
+    return;
+  }
+
+
+  /*
+    BOX 02:
+    Must open the box first.
+  */
+
+  if(
+    scene === 4 &&
+    !completed[4]
+  ){
+    return;
+  }
+
+
+  /*
+    BOX 03:
+    Must open the box first.
+  */
+
+  if(
+    scene === 5 &&
+    !completed[5]
+  ){
+    return;
+  }
+
+
+  /*
+    LITTLE MOMENTS:
+    Continue completes this screen.
+  */
+
+  if(scene === 6){
+    completed[6] = true;
+  }
+
+
+  /*
+    PHOTOS:
+    Continue completes this screen.
+  */
+
+  if(scene === 7){
+    completed[7] = true;
+  }
+
+
+  /*
+    SECRET MESSAGE:
+    Must open the letter first.
+  */
+
+  if(
+    scene === 8 &&
+    !completed[8]
+  ){
+    return;
+  }
+
+
+  show(scene + 1);
 
 }
 
 
-/* Previous slide */
+/* =====================================================
+   BACK BUTTON
+   ===================================================== */
+
 function prev(){
+
+  /*
+    The visitor cannot use Back to bypass
+    the password screen.
+  */
 
   if(scene > 0){
     show(scene - 1);
@@ -755,12 +1104,19 @@ function prev(){
 }
 
 
-/* NAME UNLOCK */
+/* =====================================================
+   PASSWORD UNLOCK
+   ===================================================== */
+
 function unlock(){
 
-  let n = $("nameInput").value.trim();
+  const entered =
+    $("nameInput")
+      .value
+      .trim();
 
-  if(!n){
+
+  if(!entered){
 
     $("err").textContent =
       "Please enter the name first ❤️";
@@ -768,117 +1124,253 @@ function unlock(){
     return;
   }
 
-  d.name = n;
 
-  localStorage.setItem(
-    "birthdayFinal",
-    JSON.stringify(d)
-  );
+  /*
+    EXACT PASSWORD CHECK.
 
-  render();
+    Correct:
+    LOVE
+
+    Wrong:
+    love
+    Love
+    Rahul
+    anything else
+  */
+
+  if(entered !== PASSWORD){
+
+    $("err").textContent =
+      "Hmm... try again ❤️";
+
+    $("nameInput").focus();
+
+    return;
+  }
+
+
+  /*
+    PASSWORD IS CORRECT
+  */
+
+  unlocked = true;
+
+  completed[0] = true;
 
   $("err").textContent = "";
 
+  render();
+
   show(1);
+
 }
 
 
-/* SURPRISE BOXES */
+/* =====================================================
+   SURPRISE BOXES
+   ===================================================== */
+
 function reveal(i){
+
+  if(!d.boxes[i]){
+    return;
+  }
+
 
   $("r"+i).textContent =
     d.boxes[i][1];
 
-  $("r"+i).classList.add("show");
+
+  $("r"+i)
+    .classList.add("show");
 
 
-  /* Hide the Open Me button after opening */
-  $("open"+i).classList.add("hide");
+  $("open"+i)
+    .classList.add("hide");
 
 
-  /* Only now reveal Continue */
-  $("nextAfter"+i).classList.remove("hide");
+  /*
+    Box opened successfully.
+  */
+
+  completed[i + 3] = true;
+
+
+  /*
+    Continue appears only after opening.
+  */
+
+  $("nextAfter"+i)
+    .classList.remove("hide");
+
 }
 
 
-/* SECRET LETTER */
+/* =====================================================
+   SECRET LETTER
+   ===================================================== */
+
 function openLetter(){
 
-  $("letter").textContent = d.letter;
+  $("letter").textContent =
+    d.letter;
 
-  $("letter").classList.add("show");
 
-  $("letterBtn").classList.add("hide");
+  $("letter")
+    .classList.add("show");
 
-  $("nextAfterLetter").classList.remove("hide");
+
+  $("letterBtn")
+    .classList.add("hide");
+
+
+  /*
+    Letter has been opened.
+  */
+
+  completed[8] = true;
+
+
+  /*
+    Continue appears only now.
+  */
+
+  $("nextAfterLetter")
+    .classList.remove("hide");
+
 }
 
 
-/* RESTART */
+/* =====================================================
+   RESET ACTIONS
+   ===================================================== */
+
+function resetActions(){
+
+  for(let i=0;i<3;i++){
+
+    $("r"+i)
+      .classList.remove("show");
+
+
+    $("open"+i)
+      .classList.remove("hide");
+
+
+    $("nextAfter"+i)
+      .classList.add("hide");
+
+  }
+
+
+  $("letter")
+    .classList.remove("show");
+
+
+  $("letterBtn")
+    .classList.remove("hide");
+
+
+  $("nextAfterLetter")
+    .classList.add("hide");
+
+
+  completed = {
+
+    0:false,
+    1:false,
+    2:false,
+    3:false,
+    4:false,
+    5:false,
+    6:false,
+    7:false,
+    8:false
+
+  };
+
+}
+
+
+/* =====================================================
+   PLAY AGAIN
+   ===================================================== */
+
 function restart(){
+
+  unlocked = false;
 
   $("nameInput").value = "";
 
   $("err").textContent = "";
 
-  document
-    .querySelectorAll(".reveal")
-    .forEach(x => x.classList.remove("show"));
-
-  document
-    .querySelectorAll("[id^='nextAfter']")
-    .forEach(x => x.classList.add("hide"));
-
-  document
-    .querySelectorAll("[id^='open']")
-    .forEach(x => x.classList.remove("hide"));
-
-  $("letter").classList.remove("show");
-
-  $("letterBtn").classList.remove("hide");
+  resetActions();
 
   show(0);
+
 }
 
 
-/* MUSIC */
+/* =====================================================
+   MUSIC
+   ===================================================== */
+
 let playing = false;
+
 
 function musicToggle(){
 
-  let a = $("music");
+  const a = $("music");
+
 
   if(!playing){
 
     a.play()
+
       .then(()=>{
+
         playing = true;
-        $("musicBtn").textContent =
+
+        $("musicBtn")
+          .textContent =
           "🎵 Music: ON";
+
       })
+
       .catch(()=>{
+
         alert(
           "Put music.mp3 beside index.html in your GitHub repository."
         );
+
       });
 
-  }else{
+  }
+
+  else{
 
     a.pause();
 
     playing = false;
 
-    $("musicBtn").textContent =
+    $("musicBtn")
+      .textContent =
       "🎵 Music: OFF";
+
   }
+
 }
 
 
-/* Start */
+/* =====================================================
+   START
+   ===================================================== */
+
 render();
+
 show(0);
 
 </script>
 
 </body>
-</html>
+  </html>
