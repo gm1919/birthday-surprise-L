@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Birthday Website Editor ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fffdfb,#fff0f3);color:#684a53;font-family:Arial,sans-serif;padding:24px 14px}.wrap{max-width:760px;margin:auto}h1,h2{font-family:Georgia,serif;font-weight:500}h1{font-size:clamp(30px,7vw,42px)}p{color:#8b6d75;line-height:1.65}.box{background:#fff;border:1px solid #efd9de;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 8px 26px #9a58610d}label{display:block;font-size:10px;letter-spacing:1.5px;color:#9a7079;margin:14px 0 6px;text-transform:uppercase}input,textarea{width:100%;box-sizing:border-box;border:1px solid #e7cbd2;border-radius:10px;padding:12px;font:14px Arial;color:#684a53;background:#fffdfd}textarea{min-height:100px;resize:vertical}button{width:100%;padding:14px;border:0;border-radius:25px;background:#cf7185;color:#fff;font-weight:bold;margin-top:10px;cursor:pointer}.secondary{background:#fff;color:#ad566b;border:1px solid #efd9de}small,.note{color:#9a7079;font-size:12px;line-height:1.6}.note{background:#fff8fa;border-radius:12px;padding:12px}.photohelp{margin:4px 0 8px}
+</style>
+</head>
+<body><main class="wrap">
+<h1>Your Birthday Website Editor ❤️</h1>
+<p>Edit the messages, memories, and photo captions below. First tap <b>Save Changes</b> to keep a copy in this browser. Then tap <b>Download Final Website</b> and upload the downloaded <code>index.html</code> to your website to publish the changes for everyone.</p>
+<div class="note">The secret password stays <b>LOVE</b> in capital letters only. The editor and website should be in the same published folder. Saved changes in this browser are not automatically visible on another person's phone until you publish the downloaded file.</div>
+<div class="box"><label>Her Name (shown on the birthday screens)</label><input id="name" autocomplete="off"><label>Birthday Message</label><textarea id="birthday"></textarea></div>
+<div class="box"><h2>Little Moments</h2><label>Little Moments Intro</label><textarea id="intro"></textarea><div id="moments"></div></div>
+<div class="box"><h2>Three Surprise Boxes</h2><div id="boxes"></div></div>
+<div class="box"><h2>Three Memories</h2><p class="photohelp"><small>Upload photos to the same website folder and enter the exact filename, such as <code>photo1.jpg</code>. Keep each photo's caption personal.</small></p><div id="photos"></div></div>
+<div class="box"><label>Secret Letter</label><textarea id="letter"></textarea><label>Final Message</label><textarea id="final"></textarea></div>
+<button onclick="save()">SAVE CHANGES</button>
+<button onclick="downloadFinal()">DOWNLOAD FINAL WEBSITE</button>
+<button class="secondary" onclick="location.href='index.html'">OPEN BIRTHDAY WEBSITE</button>
+</main>
+<script>
+const defaults = {
+  name: "DEAR",
+  birthday: "I hope today gives you even a little of the happiness you give me.",
+  intro: "A few little things that make me smile whenever I think of you.",
+  moments: [["Your smile","Write something about her smile here."],["The little things","Write something about the little things here."],["Just you","Write something personal here."]],
+  photos: [["","A memory worth keeping."],["","One of my favourite little moments."],["","Just because this one makes me smile."]],
+  boxes: [["A tiny surprise","Write your message for Box 01 here."],["Something from me","Write your message for Box 02 here."],["The suspicious one","Write your message for Box 03 here."]],
+  letter: "I hope today gives you even a little of the happiness you give me.\n\nAnd if I can make you smile even once today, then this little surprise was worth it. ❤️\n\nYou smiled, right?\nThat's all I wanted. ❤️",
+  final: "Because you deserve more beautiful days, more reasons to laugh, and more moments that make you genuinely happy."
+};
+const $ = id => document.getElementById(id);
+const escapeHTML = value => String(value ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+let d = JSON.parse(localStorage.getItem("birthdayFinal") || "null") || structuredClone(defaults);
+function load(){
+  $("name").value=d.name||""; $("birthday").value=d.birthday||""; $("intro").value=d.intro||""; $("letter").value=d.letter||""; $("final").value=d.final||"";
+  $("moments").innerHTML=d.moments.map((x,i)=>`<label>Moment ${i+1} Title</label><input id="mt${i}" value="${escapeHTML(x[0])}"><label>Moment ${i+1} Text</label><textarea id="mx${i}">${escapeHTML(x[1])}</textarea>`).join("");
+  $("boxes").innerHTML=d.boxes.map((x,i)=>`<label>Box ${i+1} Title</label><input id="bt${i}" value="${escapeHTML(x[0])}"><label>Box ${i+1} Message</label><textarea id="bx${i}">${escapeHTML(x[1])}</textarea>`).join("");
+  $("photos").innerHTML=d.photos.map((x,i)=>`<label>Photo ${i+1} Filename / Path</label><input id="pi${i}" value="${escapeHTML(x[0])}" placeholder="photo${i+1}.jpg"><label>Photo ${i+1} Caption</label><input id="pc${i}" value="${escapeHTML(x[1])}">`).join("");
+}
+function collect(){
+  d.name=$("name").value.trim()||"DEAR"; d.birthday=$("birthday").value; d.intro=$("intro").value; d.letter=$("letter").value; d.final=$("final").value;
+  d.moments.forEach((x,i)=>{x[0]=$("mt"+i).value;x[1]=$("mx"+i).value});
+  d.boxes.forEach((x,i)=>{x[0]=$("bt"+i).value;x[1]=$("bx"+i).value});
+  d.photos.forEach((x,i)=>{x[0]=$("pi"+i).value.trim();x[1]=$("pc"+i).value});
+}
+function save(){collect();localStorage.setItem("birthdayFinal",JSON.stringify(d));alert("Saved on this browser ❤️\nFor her to see the changes too, download the final website and publish the new index.html.");}
+async function downloadFinal(){
+  collect(); localStorage.setItem("birthdayFinal",JSON.stringify(d));
+  try{
+    const response=await fetch("index.html",{cache:"no-store"});
+    if(!response.ok) throw new Error("index.html could not be read");
+    let src=await response.text();
+    const pattern=/const defaults\s*=\s*\{[\s\S]*?\};/;
+    if(!pattern.test(src)) throw new Error("Could not find the defaults section in index.html");
+    const embedded=JSON.stringify(d).replace(/</g,"\\u003c");
+    src=src.replace(pattern,"const defaults = "+embedded+";");
+    const blob=new Blob([src],{type:"text/html;charset=utf-8"});
+    const url=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=url; a.download="index.html"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1500);
+    alert("Your customized index.html has been downloaded ❤️ Upload it to your website and replace the old index.html. Keep editor.html and music.mp3 too.");
+  }catch(error){alert("Could not prepare the final website. Please open editor.html from the same published website folder as index.html.\n\n"+error.message);}
+}
+load();
+</script></body></html>
